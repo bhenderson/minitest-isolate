@@ -1,7 +1,9 @@
 .autotest
+.gitignore
 History.txt
 Manifest.txt
 README.txt
 Rakefile
 lib/minitest/isolate.rb
 lib/minitest/isolate/rake.rb
+test/test_minitest_isolate.rb
