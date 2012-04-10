@@ -28,6 +28,29 @@ This will create three tasks for you:
 * test:isolate:that # will isolate `that' gem and run your tests
 * test:isolate # will run both tests
 
+in your tests:
+
+  require 'minitest/isolate'
+
+  class TestMeme < MiniTest::Unit::TestCase
+    def test_depends_on_this
+      # test this
+    end if isolated? :this
+
+    def test_depends_on_that
+      # test that
+    end if isolated? :that
+
+    def test_always_runs
+      # test all
+    end
+
+    def test_both
+      assert this if isolated? :this
+      assert that if isolated? :that
+    end
+  end
+
 == REQUIREMENTS:
 
 * isolate
