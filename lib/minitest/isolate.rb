@@ -2,7 +2,7 @@ require 'minitest/unit'
 
 module MiniTest
   module Isolate
-    VERSION = '1.0.0'
+    VERSION = '1.0.0.pre'
 
     def isolated? name = nil
       path = ENV['ISOLATED']

@@ -8,17 +8,16 @@ module Rake
         # isolate
         t.isolate_now! &block
         # run tests
-        task(:test).invoke
+        Rake::Task[:test].invoke
       end
     end
 
     def isolate_now! &block
-      Isolate.now! :path => isolate_path, &block
+      Isolate.now! :path => isolate_path, :system => false, &block
     end
 
     def isolate_path
-      # HACKY
-      name.gsub(':', '/')
+      File.join 'tmp', *name.split(':')
     end
   end
 end
